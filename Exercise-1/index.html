@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Leaflet Guide: http://leafletjs.com/examples/quick-start.html -->
+
+<html lang="en">
+<head>
+	<style type="text/css">
+		body { margin:0; padding: 0; }
+		html, #map { position:absolute; top:0; bottom:0; width:100%; }
+	</style>
+
+	<title> Base Layer </title>
+
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+</head>
+
+<body>
+	<div id="map"></div>
+	<script>
+
+		var map = L.map('map', {
+		  scrollWheelZoom: false,
+		  center: [64.181410, -51.694138],
+		  zoom: 11,
+		});
+
+		// what are the different parameters?
+		// http://leafletjs.com/reference.html#url-template
+
+		// tile servers and URLs
+		//http://wiki.openstreetmap.org/wiki/Tile_servers
+
+		// shortcuts for common tile providers
+		// https://gist.github.com/mourner/1804938
+
+		// leaflet providers extension
+		// https://github.com/leaflet-extras/leaflet-providers
+
+		//http://a.tile.thunderforest.com/landscape/${z}/${x}/${y}.png
+
+		L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {
+			attribution: 'Maps &copy; <a href="http://www.thunderforest.com/maps/landscape/">Thunderforest</a>, Data &copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>',
+			maxZoom: 18,
+			opacity: 0.5,
+		}).addTo(map);
+	</script>
+</body>
+</html>
